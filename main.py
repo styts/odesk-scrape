@@ -10,8 +10,8 @@ url_of_page = "https://www.odesk.com/o/profiles/browse/c/web-development/\
 fb/45/hrs/0/?q=rails&page=%s"
 
 countries = [
-    #'Austria',
-    #'Germany',
+    'Austria',
+    'Germany',
     #'United Kingdom'
 ]
 
@@ -77,12 +77,13 @@ def load_pickle():
         profiles, bad_profiles = extract_profiles()
         if len(profiles):
             profiles = filter(len, profiles)
-            profiles = filter(lambda x: x[2] in countries if len(countries) else True, profiles)
             profiles.sort(key=lambda x: x[1], reverse=True)
         pickle.dump(profiles, open(pfile, 'w'))
         return profiles
 
 profiles = load_pickle()
-#for p in profiles:
-    #print p
+profiles = filter(lambda x: x[2] in countries if
+                    len(countries) else True, profiles)
+for p in profiles[0:100]:
+    print p
 print len(profiles), "Profiles"
