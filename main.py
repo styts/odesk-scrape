@@ -10,10 +10,12 @@ url_of_page = "https://www.odesk.com/o/profiles/browse/c/web-development/\
 fb/45/hrs/0/?q=rails&page=%s"
 
 countries = [
-    'Austria',
-    'Germany',
+    #'Austria',
+    #'Germany',
     #'United Kingdom'
 ]
+
+price_range = (35, 75)
 
 
 def parse_soup(soup):
@@ -84,6 +86,8 @@ def load_pickle():
 profiles = load_pickle()
 profiles = filter(lambda x: x[2] in countries if
                     len(countries) else True, profiles)
+profiles = filter(lambda x: x[1] > price_range[0] and
+                  x[1] < price_range[1], profiles)
 for p in profiles[0:100]:
     print p
 print len(profiles), "Profiles"
