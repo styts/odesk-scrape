@@ -1,12 +1,14 @@
 Will attempt to scrape all web developers from odesk (around 3700 in Sept. 2013).
 
 Caches in /tmp/odesk-cache/:
-    * /<page_number>/html
-    * profiles.pickle
 
-Optional filter by:
-    country
-    rate
+- /\<page_number\>/html
+- profiles.pickle
+
+Optionally filter by:
+
+- country
+- rate
 
 Installation
 ============
@@ -16,6 +18,7 @@ Installation
 
 Running
 =======
+```
 ./main.py
  Loading profiles form cache...
  (u'David B.', 72.22, u'United States')
@@ -24,3 +27,4 @@ Running
  (u'Brian M.', 72.22, u'United States')
  (u'Aditya A.', 70.0, u'Indonesia')
  (u'Christopher A.', 70.0, u'United States')
+```
