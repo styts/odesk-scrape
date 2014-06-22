@@ -6,13 +6,15 @@ from bs4 import BeautifulSoup
 
 profile_tag = "oBd"
 
+query = "python"
+
 url_of_page = "https://www.odesk.com/o/profiles/browse/c/web-development/\
-fb/45/hrs/0/?q=rails&page=%s"
+fb/45/hrs/0/?q=%s&page=%s"
 
 countries = [
-    #'Austria',
-    #'Germany',
-    #'United Kingdom'
+    'Austria',
+    'Germany',
+    'United Kingdom'
 ]
 
 price_range = (35, 75)
@@ -40,7 +42,7 @@ def parse_soup(soup):
 
 
 def cached_url_contents(number):
-    url = url_of_page % number
+    url = url_of_page % (query, number)
     if not os.path.exists("/tmp/odesk-cache/"):
         os.makedirs("/tmp/odesk-cache/")
     if os.path.exists("/tmp/odesk-cache/%s/html" % number):
